@@ -2,13 +2,33 @@ $primary-font: 'Open Sans', sans-serif;
 $secondary-font: 'Dosis', sans-serif; 
 
 $main-blue: #337ab7; 
+.navbar-default{
+       margin-top:50px; /* you don't need add this line */
+    border-radius: 0px;
+   }
+   
+   .navbar-inverse .navbar-nav > li > a {
+		color: #9d9d9d;
+	}
+	.navbar-inverse .navbar-nav > li > a:hover,
+	.navbar-inverse .navbar-nav > li > a:focus
+	{
+		color: #fff;
+		background-color: transparent;
+		border-bottom: 3px solid #f62329;
+		background: url("http://s31.postimg.org/9k42omozb/arrow.png") bottom;
+		background-repeat: no-repeat;
 
-.navbar-header .navbar-brand {
-  font-weight: 100;
-  font-size: 30px;
-  letter-spacing: 2px;
-  color: $main-blue;
-  font-family: $secondary-font;
-  background-color: $main-blue;
 
-}
+
+	}
+	.navbar-inverse .navbar-nav > .active > a,
+	.navbar-inverse .navbar-nav > .active > a:hover,
+	.navbar-inverse .navbar-nav > .active > a:focus {
+		color: #fff;
+		background-color: #080808;
+		border-bottom: 3px solid #f62329;
+		background: url("http://s31.postimg.org/9k42omozb/arrow.png") bottom;
+		background-repeat: no-repeat;
+
+	}

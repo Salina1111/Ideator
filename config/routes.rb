@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   
   root 'ideas#index'
 
-  resource :ideas
+  resources :ideas
 end

@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'will_paginate', '~> 3.1.0'
 gem 'simple_form'
 group :development, :test do
   gem 'sqlite3'

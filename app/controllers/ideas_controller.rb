@@ -1,37 +1,32 @@
 class IdeasController < ApplicationController
 	def index
-		@ideas = Idea.order("created_at DESC").paginate(:page =>params[:page], :per_page =>10)
+		@ideas = Idea.all.paginate(:page =>params[:page], :per_page =>10)
 	end
 
 	def edit
-	@idea= Idea.find(params[:id])
-		if @idea.update(idea_params)
-    		redirect_to root_path
-  		else
-    		redirect_to edit_idea_path(params[:id])
-  		end
+  	@idea = Idea.find(params[:id])
 	end
 
 	def create
-  @idea = Idea.create(idea_params)
-  if @idea.valid?
-    flash[:success] ="Your idea has been posted!"
-  else
-    flash[:alert]="Woops!Looks like there has been a error!"
+    @idea = Idea.create(idea_params)
+    if @idea.valid?
+      flash[:notice] ="Your idea has been posted!"
+    else
+      flash[:alert]="Woops!Looks like there has been a error!"
+    end
+    redirect_to root_path
   end
-  redirect_to root_path
-end
 
-  	def update
-  		@idea = Idea.find(params[:id])
-  			if @idea.update(idea_params)
-  				flash[:success]="The idea has been updated!"
-   			redirect_to root_path
-  			else
-  				flash[:success]="Woops! Looks like there has been an error!"
-    			redirect_to edit_idea_path(params[:id])
-  			end
-	end
+    def update
+    @idea = Idea.find(params[:id])
+    if @idea.update(idea_params)
+    flash[:success]="The idea has been updated!"
+    redirect_to root_path
+    else
+    flash[:success]="Woops! Looks like there has been an error!"
+    redirect_to edit_idea_path(params[:id])
+    end
+  end
 
 
 	def destroy
@@ -44,12 +39,9 @@ end
 		@ideas = Idea.all.paginate(:page => params[:page], :per_page => 10)
 	end
 	
-end
-
-	
 	private
 	
 	def idea_params
 		params.require(:idea).permit(:description, :author)
-		
 	end
+end

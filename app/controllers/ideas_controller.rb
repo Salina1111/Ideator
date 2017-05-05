@@ -35,9 +35,7 @@ class IdeasController < ApplicationController
   		flash[:success]="The idea was successfully deleted!"
   		redirect_to root_path
 	end
-	def index
-		@ideas = Idea.all.paginate(:page => params[:page], :per_page => 10)
-	end
+	
 	
 	private
 	
